@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base2laser" args="0.15 0.0 0.47 0.0 0.0 0.0 base_link laser" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base2sonar" args="0.15 0.0 0.20 0.0 0.0 0.0 base_link sonar" />
+  
+  <node pkg="lms1xx" type="LMS1xx_node" name="lms1xx_node" output="screen">
+    <param name="host" value="192.168.0.1"/>
+  </node>
+  
+  <node pkg="rosaria" type="RosAria" name="RosAria" >
+    <remap from="/RosAria/cmd_vel" to="/cmd_vel"/>
+    <remap from="/RosAria/pose" to="/odom"/>
+  </node>
+  
+  <include file="$(find p3dx_2dnav)/launch/p3dx_nav.launch" />
+  
+</launch>

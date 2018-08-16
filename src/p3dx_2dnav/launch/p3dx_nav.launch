@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<launch>
+  <include file="$(find p3dx_2dnav)/launch/p3dx_camera_setup.launch" />
+
+  <include file="$(find p3dx_2dnav)/launch/map_setup.launch" />
+  
+  <include file="$(find p3dx_2dnav)/launch/p3dx_amcl_diff.launch" />
+  
+  <include file="$(find p3dx_2dnav)/launch/p3dx_move_base.launch" />
+  
+  <include file="$(find p3dx_2dnav)/launch/filter.launch" />
+  
+  <!-- for rviz -->
+  
+  <!-- <node name="voxel_grid_2_point_cloud" pkg="costmap_2d" type="costmap_2d_cloud"> -->
+    <!-- <remap from="voxel_grid" to="/move_base/local_costmap/depth/voxel_grid"/> -->
+    <!-- <remap from="voxel_marked_cloud" to="/move_base/local_costmap/depth/marked_cloud"/> -->
+    <!-- <remap from="voxel_unknown_cloud" to="/move_base/local_costmap/depth/unknown_cloud"/> -->
+  <!-- </node> -->
+  
+
+
+</launch>
